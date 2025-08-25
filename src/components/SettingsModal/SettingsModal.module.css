@@ -1,0 +1,146 @@
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInOverlay 0.25s ease-out;
+  z-index: 999; /* Ensure on top */
+}
+
+.modal {
+  background: #fff;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  padding: 0;
+  overflow: hidden;
+  animation: scaleIn 0.25s ease-out;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.dark .modal {
+  background: #2a2a2a;
+  color: #eaeaea;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  font-size: 18px;
+}
+
+.dark .modalHeader {
+  border-color: rgba(255,255,255,0.1);
+}
+
+.closeButton {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+.closeButton:hover {
+  transform: rotate(90deg);
+}
+
+.settingsGroup {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.settingItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: border 0.2s;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #4e8cff;
+}
+
+.dark .select {
+  background: #1e1e1e;
+  border-color: #444;
+  color: #eaeaea;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 18px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.dark .modalFooter {
+  border-color: rgba(255,255,255,0.1);
+}
+
+/* Buttons */
+.saveButton {
+  background: linear-gradient(135deg, #4e8cff, #3b6ed0);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.saveButton:hover {
+  transform: scale(1.05);
+}
+
+.cancelButton {
+  background: #ddd;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.cancelButton:hover {
+  background: #bbb;
+}
+
+.dark .cancelButton {
+  background: #444;
+}
+
+.dark .cancelButton:hover {
+  background: #555;
+}
+
+/* Animations */
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

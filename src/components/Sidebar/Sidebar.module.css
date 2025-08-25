@@ -1,0 +1,271 @@
+/* ===== Base styles ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  max-width: 100%;
+  background-color: #ffffff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #e0e0e0;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* ===== Dark mode ===== */
+.dark .sidebar {
+  background-color: #2d3748;
+  border-right-color: #4a5568;
+}
+
+/* ===== Menu button ===== */
+.menuButton {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0.5rem;
+  border-radius: 4px;
+  color: #1f1f1f;
+  transition: background-color 0.2s;
+}
+.menuButton.dark {
+  color: #f0f0f0;
+}
+.menuButton:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.dark .menuButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Header ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+.dark .header {
+  border-bottom-color: #4a5568;
+}
+
+/* ===== New chat ===== */
+.newChatButton {
+  padding: 0.75rem 1rem;
+  background-color: #4a6fa5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+.dark .newChatButton {
+  background-color: #4a5568;
+}
+.newChatButton:hover {
+  background-color: #3a5a8a;
+}
+.dark .newChatButton:hover {
+  background-color: #5a6268;
+}
+.App.dark .sidebar {
+  background-color: #2d2d2d;
+  color: #eee;
+  border-color: #444;
+}
+
+
+/* ===== Close button ===== */
+.closeButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+.dark .closeButton { color: #a0aec0; }
+.closeButton:hover { background-color: rgba(0, 0, 0, 0.1); }
+.dark .closeButton:hover { background-color: rgba(255, 255, 255, 0.1); }
+
+/* ===== Search ===== */
+.searchContainer {
+  position: relative;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+.dark .searchContainer { border-bottom-color: #4a5568; }
+
+.searchInput {
+  width: 100%;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background-color: #f9f9f9;
+}
+.dark .searchInput {
+  background-color: #4a5568;
+  color: #f0f0f0;
+  border-color: #4a5568;
+}
+
+.clearButton {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 0.25rem;
+}
+.dark .clearButton { color: #a0aec0; }
+
+/* ===== Chat list ===== */
+.chatList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+.chatItem {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-bottom: 1px solid #f0f0f0;
+}
+.dark .chatItem { border-bottom-color: #4a5568; }
+.chatItem:hover { background-color: rgba(0, 0, 0, 0.05); }
+.dark .chatItem:hover { background-color: rgba(255, 255, 255, 0.05); }
+.chatItem.active { background-color: rgba(74, 111, 165, 0.1); }
+.dark .chatItem.active { background-color: rgba(74, 111, 165, 0.2); }
+
+/* ===== Responsive containers ===== */
+.chatContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.chatTitle {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
+}
+
+/* ===== Chat item actions ===== */
+.chatItemActions {
+  display: flex;
+  gap: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.chatItem:hover .chatItemActions { opacity: 1; }
+
+.renameButton,
+.deleteButton,
+.confirmDeleteButton,
+.cancelDeleteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+/* buttons colors (light/dark preserved as before) */
+/* ... keep your same dark/light button colors here ... */
+
+/* ===== Rename input ===== */
+.renameInput {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+.dark .renameInput {
+  background-color: #4a5568;
+  color: #f0f0f0;
+  border-color: #4a5568;
+}
+
+/* ===== Overlay ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* ===== Scrollbar ===== */
+.chatList::-webkit-scrollbar { width: 6px; }
+.chatList::-webkit-scrollbar-track { background: #f1f1f1; }
+.chatList::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 3px; }
+.chatList::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+.dark .chatList::-webkit-scrollbar-track { background: #2d3748; }
+.dark .chatList::-webkit-scrollbar-thumb { background: #4a5568; }
+.dark .chatList::-webkit-scrollbar-thumb:hover { background: #5a6268; }
+
+/* ===== Responsive tweaks ===== */
+
+/* Small screens (<480px) */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 90%;
+    max-width: 320px;
+  }
+  .newChatButton { font-size: 0.85rem; padding: 0.5rem 0.7rem; }
+  .searchInput { font-size: 0.85rem; }
+}
+
+/* Tablets (481px–767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .sidebar {
+    width: 70%;
+    max-width: 340px;
+  }
+}
+
+/* Medium screens (768px–1023px) = permanent sidebar */
+@media (min-width: 768px) {
+  .menuButton, .closeButton, .overlay { display: none; }
+  .sidebar {
+    position: relative;
+    transform: none;
+    box-shadow: none;
+    border-right: 1px solid var(--border-color, #e0e0e0);
+  }
+}
+
+/* Large desktops (>1440px) */
+@media (min-width: 1440px) {
+  .sidebar {
+    width: 320px;
+  }
+}

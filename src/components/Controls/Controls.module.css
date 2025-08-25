@@ -1,0 +1,73 @@
+.Controls {
+  display: flex;
+  align-items: flex-end;
+  padding: 12px;
+  gap: 8px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  background: var(--controls-bg, #fff);
+}
+
+.TextAreaContainer {
+  flex: 1;
+}
+
+.TextArea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  resize: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.TextArea:focus {
+  border-color: #4e8cff;
+  background: #f7faff;
+  box-shadow: 0 0 0 2px rgba(78, 140, 255, 0.2);
+}
+
+.Button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.Button:disabled {
+  cursor: not-allowed;
+}
+
+.ButtonActive:hover {
+  background: rgba(78, 140, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.ButtonActive:active {
+  background: rgba(78, 140, 255, 0.2);
+  transform: scale(0.95);
+}
+
+/* Dark theme example */
+.dark .Controls {
+  border-color: #333;
+  background: #1d1d1d;
+}
+
+.dark .TextArea {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #ddd;
+}
+
+.dark .TextArea:focus {
+  border-color: #4e8cff;
+  background: #232323;
+}
+
+.dark .ButtonActive:hover {
+  background: rgba(78, 140, 255, 0.15);
+}

@@ -1,0 +1,98 @@
+.notification {
+  position: fixed; /* Take it out of normal flow */
+  top: 20px;       /* Space from top of screen */
+  right: 20px;     /* Space from right edge */
+  z-index: 2000;   /* Above header, sidebar, etc. */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  margin: 0; /* Remove extra margin so position is reliable */
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  animation: slideIn 0.3s ease, fadeOut 0.3s ease forwards;
+  animation-delay: 0s, 2.7s; /* Matches autoClose default 3s */
+  min-width: 260px;
+  max-width: 380px;
+}
+
+
+/* Notification types */
+.info {
+  background: linear-gradient(135deg, #4e8cff, #3b6ed0);
+}
+
+.success {
+  background: linear-gradient(135deg, #34c759, #28a745);
+}
+
+.error {
+  background: linear-gradient(135deg, #ff4d4f, #d9363e);
+}
+
+.warning {
+  background: linear-gradient(135deg, #ffa940, #d48806);
+}
+
+.message {
+  flex: 1;
+  padding-right: 10px;
+}
+
+/* Close button */
+.closeButton {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.closeButton:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+/* Slide in from top */
+@keyframes slideIn {
+  from {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Fade out animation */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+}
+
+/* Dark mode support */
+.dark .info {
+  background: linear-gradient(135deg, #5ea0ff, #4e8cff);
+}
+
+.dark .success {
+  background: linear-gradient(135deg, #42d77d, #34c759);
+}
+
+.dark .error {
+  background: linear-gradient(135deg, #ff6666, #ff4d4f);
+}
+
+.dark .warning {
+  background: linear-gradient(135deg, #ffb84d, #ffa940);
+}

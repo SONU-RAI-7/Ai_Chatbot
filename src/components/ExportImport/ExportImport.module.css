@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.button {
+  background: #4e8cff;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.25s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.button:hover {
+  background: #3b6ed0;
+  transform: translateY(-1px);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.export {
+  background: linear-gradient(135deg, #4e8cff, #3b6ed0);
+}
+
+.import {
+  background: linear-gradient(135deg, #34c759, #28a745);
+}
+
+.import:hover {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+/* Hide raw file input so label looks like a button */
+.fileInput {
+  display: none;
+}
+
+/* Dark mode support */
+.dark .button {
+  color: #fff;
+}
+
+.dark .export {
+  background: linear-gradient(135deg, #5ea0ff, #4e8cff);
+}
+
+.dark .import {
+  background: linear-gradient(135deg, #3ddc84, #2bb96c);
+}

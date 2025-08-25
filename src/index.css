@@ -1,0 +1,61 @@
+:root {
+  /* Font reset */
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Theme variables (default = light) */
+  --text-color: #0d0d0d;
+  --bg-color: #f3f3f3;
+  --header-bg: #4a6fa5;
+  --border-color: #ddd;
+
+  /* Applied colors */
+  color: var(--text-color);
+  background: var(--bg-color);
+
+  /* Rendering optimizations */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark theme overrides */
+body.dark {
+  --text-color: #ececec;
+  --bg-color: #171717;
+  --header-bg: #1a365d;
+  --border-color: #444;
+}
+
+/* Universal box sizing */
+* {
+  box-sizing: border-box;
+}
+
+/* Body container */
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Wrapper to control padding & full width */
+#root, .App {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+/* Smooth transitions for elements using theme vars */
+body, button, input, textarea {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
